@@ -1,3 +1,4 @@
-foreach ($vc in (Get-Content ./vcenter.list)) {
-    Connect-VIServer -server $vc -protocol https
-}
+$username = Read-Host "username"
+$password = Read-Host "password" -MaskInput
+
+Connect-VIServer -server (get-content ./vcenter.list) -protocol https -User $username -Password $password
